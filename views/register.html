@@ -1,0 +1,85 @@
+<div class="ui container grid" ng-init="vm.init()">
+	<!-- left -->
+  <div class="five wide column"></div>
+  <!-- center -->
+  <div class="six wide column">
+  	<!-- <div class="ui attached message">
+      <div class="header">
+        Chill Chill Game Store
+      </div>
+      <p>Fill out the form below to sign-up for a new account</p>
+    </div> -->
+    <form class="ui form attached fluid segment" ng-submit="vm.regisBtn(data)">
+      <div class="field">
+        <label>Username</label>
+        <input type="text" ng-model="data.username" placeholder="Username" required>
+      </div>
+      <div class="two fields">
+        <div class="field" data-ng-class="{error : vm.error}">
+          <label>Password</label>
+          <input type="password" ng-model="data.password" placeholder="Password" required>
+        </div>
+        <div class="field" data-ng-class="{error : vm.error}">
+          <label>Re-Password</label>
+          <input type="password" ng-model="data.repassword" placeholder="Password" required>
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>First Name</label>
+          <input type="text" ng-model="data.firstname" placeholder="First Name" required>
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input type="text" ng-model="data.lastname" placeholder="Last Name" required>
+        </div>
+      </div>
+      <div class="field">
+        <label>Address</label>
+        <!-- <input type="text" placeholder="Address" > -->
+        <textarea rows="2" ng-model="data.address"></textarea>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>E-mail</label>
+          <input type="email" ng-model="data.email" placeholder="example@domain.com" required>
+        </div>
+        <div class="field">
+          <label>Tel.</label>
+          <input type="tel" ng-model="data.telephone" placeholder="0812345678" required>
+        </div>
+      </div>
+      <div class="field">
+        <label>Facebook id</label>
+        <input type="text" ng-model="data.facebook_id" readonly>
+      </div>
+      <div class="inline field">
+        <a class="text floated left" href="#!/login">Already signed in?</a>
+        <a class="text floated right" href="#">Forget password?</a>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <button class="ui green button fluid" type="submit">
+            <i class="sign in icon"></i>
+            Sign up
+          </button>
+        </div>
+        <div class="field">
+        <button class="ui facebook button fluid disabled" type="button" >
+          <i class="facebook icon"></i>
+          Facebook
+        </button>
+        </div>
+      </div>
+    </form>
+    <div class="ui bottom attached positive message" ng-if="vm.message">
+      <i class="icon help"></i>
+      {{ vm.message }}
+    </div>
+  </div>
+  <!-- right -->
+  <div class="five wide column"></div>
+
+</div>
+<script>
+</script>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Chill-Chill Game Store จำหน่ายเกม Steam ในรูปแบบ Digital Download ทั้งแบบ Gift และ Key</title>
+
+  <meta http-equiv="cache-control" content="max-age=0, no-cache">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+
+
+	<!-- style -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.css">
+	<link rel="stylesheet" href="./component/assets/style/style.css">
+	<!-- script -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+	<script src="//unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="./component/assets/lib/ngFacebook.js"></script>
+
+
+  <script src="./component/assets/js/app.js"></script>
+  <script src="./component/assets/js/services.js"></script>
+  <script src="./component/assets/js/controller.js"></script>
+
+
+
+</head>
+<body  ng-app="app" ng-cloak>
+  <!-- nav -->
+  <div id="nav" class="ui labeled icon menu" ng-controller="index as vm" ng-init="vm.init()">
+    <div class="left menu">
+      <a class="item" href="#!/">
+        <img class="icon" src="./component/assets/img/apple-icon-57x57.png" style="width:24px;">
+        หน้าแรก
+      </a>
+      <a class="item">
+        <i class="list layout icon"></i>
+        สินค้าทั้งหมด
+      </a>
+      <a class="item">
+        <i class="help circle icon"></i>
+        วิธีสั่งซื้อ
+      </a>
+    </div>
+    <div id="userinfo" class="right menu">
+
+      <a class="item" href="#!/login" ng-show="!vm.userinfo">
+        <i class="sign in icon"></i>
+        เข้าสู่ระบบ
+      </a>
+      <a class="item" href="#!/register" ng-show="!vm.userinfo">
+        <i class="add user icon"></i>
+        สมัครสมาชิก
+      </a>
+      <div class="item ui pointing dropdown link item" ng-show="vm.userinfo">
+        <i class="user icon"></i>
+        <span>{{ vm.userinfo.firstname }} {{ vm.userinfo.lastname }} <i class="dropdown icon"></i></span>
+        <div class="menu">
+          <div class="ui teal header">
+            <i class="settings icon"></i> Account
+          </div>
+          <div class="item">แก้ไขข้อมูลส่วนตัว</div>
+          <div class="item">ประวัติการสั่งซื้อ</div>
+          <div class="item">ประวัติการเติมเงิน</div>
+          <div class="item"><a href="#!/topup">เติมเงิน</a></div>
+          <div class="divider"></div>
+          <div class="ui teal header">Credit</div>
+          <div class="item">เงิน : {{ vm.userinfo.credit }}</div>
+          <div class="item">แต้ม : {{ vm.userinfo.credit }}</div>
+          <div class="divider" ng-if="vm.userinfo.privilege==1"></div>
+          <div class="ui teal header" ng-if="vm.userinfo.privilege==1">Administrator</div>
+          <div class="item" ng-if="vm.userinfo.privilege==1">
+            <i class="dropdown icon"></i>
+            <span class="text"><a href="./administrator">ระบบหลังบ้าน</a></span>
+            <div class="menu">
+              <!-- <div class="header"></div> -->
+              <div class="item">แดชบอร์ด</div>
+              <div class="item">จัดการสินค้า</div>
+              <div class="item">ตั้งค่าบัญชีการเงิน</div>
+              <div class="item">จัดการสมาชิก</div>
+              <!-- <div class="divider"></div> -->
+              <!-- <div class="header">Womens</div> -->
+              <div class="item">รีพอร์ท</div>
+              <div class="item">เซ็ตติ้งเว็บ</div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="item" ng-show="vm.userinfo" href="#!/mycart">
+        <i class="in cart icon"></i>
+        ตะกร้า
+        <div class="floating ui red label" style="margin-top: 18px !important;margin-left: -38px !important;" >
+          {{ vm.cartBadge }}
+        </div>
+      </a>
+      <a class="item" ng-show="vm.userinfo">
+        <i class="money icon icon"></i> {{ vm.userinfo.credit }}
+      </a>
+      <a class="item" data-ng-click="vm.logout()" ng-show="vm.userinfo">
+        <i class="sign out icon"></i>
+        ออกจากระบบ
+      </a>
+    </div>
+
+  </div>
+	<ui-view></ui-view>
+
+  <footer>
+
+  </footer>
+	<script>
+		$('.ui.dropdown').dropdown()
+	</script>
+</body>
+</html>

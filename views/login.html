@@ -1,0 +1,42 @@
+<div class="ui container grid" ng-init="vm.init()">
+	<!-- left -->
+  <div class="six wide column"></div>
+  <!-- center -->
+  <div class="four wide column">
+    <form class="ui form attached fluid segment" ng-submit="vm.loginBtn(data)">
+      <div class="field" data-ng-class="{error : vm.error}" >
+        <label>Username</label>
+        <input type="text" ng-model="data.username" placeholder="Username" autofocus autosave required>
+      </div>
+      <div class="field" data-ng-class="{error : vm.error}" >
+        <label>Password</label>
+        <input type="password" ng-model="data.password" placeholder="Password" required>
+      </div>
+      <div class="inline field">
+        <a class="text floated left" data-ng-click="vm.goRegis()" href="#!/register">Sign up</a>
+        <a class="text floated right" href="#">Forget password?</a>
+      </div>
+      <div class="field">
+        <button class="ui blue button fluid" type="submit">
+          <i class="sign in icon"></i>
+          Sign in
+        </button>
+      </div>
+      <div class="field">
+      <button class="ui facebook button fluid disabled" type="button" data-ng-click="vm.fbBtn()">
+        <i class="facebook icon"></i>
+        Facebook Sign in
+      </button>
+      </div>
+    </form>
+    <div class="ui bottom attached negative message" ng-if="vm.message">
+      <i class="icon help"></i>
+      {{ vm.message }}
+    </div>
+  </div>
+  <!-- right -->
+  <div class="six wide column"></div>
+
+</div>
+<script>
+</script>

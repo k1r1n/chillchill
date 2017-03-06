@@ -1,0 +1,100 @@
+<div class="ui container grid" data-ng-init="vm.init()">
+
+  <div class="sixteen column segment ui">
+    <h2 class="ui header">
+      <i class="plug icon"></i>
+      <div class="content">
+        Uptime Guarantee
+      </div>
+    </h2>
+    <div class="ui secondary vertical menu">
+      <a class="active item">
+        โอนผ่านธนาคาร
+      </a>
+      <a class="item">
+        โอนผ่าน TMTOPUP
+      </a>
+      <a class="item">
+        เติมด้วยบัตร TrueMoney
+      </a>
+      <div class="item disabled">
+        Paypal
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <table class="ui teal table">
+  <thead>
+    <tr>
+      <th colspan="2"><h3>ระบบเติมเงิน</h3></th>
+    </tr>
+  </thead>
+  <tr>
+    <td>
+      <div class="ui secondary vertical menu">
+        <a class="active item">
+          โอนผ่านธนาคาร
+        </a>
+        <a class="item">
+          โอนผ่าน TMTOPUP
+        </a>
+        <a class="item">
+          เติมด้วยบัตร TrueMoney
+        </a>
+        <div class="item disabled">
+          Paypal
+        </div>
+      </div>
+    </td>
+  </tr>
+</table> -->
+
+  <!-- <div class="six wide column centered">
+    <table class="ui teal table" style="text-align: center;">
+      <thead>
+        <tr>
+          <th colspan="2"><h3>ระบบเติมเงินด้วยทรูมันนี่</h3></th>
+        </tr>
+      </thead>
+      <thead>
+        <tr>
+          <th colspan="2"><img src="https://upic.me/i/ht/10338871_258058227714035_1886949996_n.jpg"></th>
+        </tr>
+      </thead>
+      <thead>
+        <tr>
+          <th>ราคาบัตรทรูมันนี่</th>
+          <th>จำนวนเงินที่ได้</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-ng-repeat="rate in vm.rate">
+          <td>{{ rate.payment | number }}</td>
+          <td>{{ 1 * rate.payment + rate.promotion | number }}</td>
+        </tr>
+        <tr>
+        	<td>รหัสประจำตัว</td>
+        	<td>
+        		<div class="ui form">
+        			<input type="text" data-ng-value="vm.userinfo.uid" readonly />
+        		</div>
+        	</td>
+        </tr>
+        <tr>
+          <td>รหัสบัตรเงินสดทรูมันนี่ (14 หลัก)</td>
+          <td>
+          	<div class="ui form">
+          		<input type="text" maxlength="14" autofocus data-ng-model="data.code">
+          	</div>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <button class="ui button blue" data-ng-click="vm.topupBtn(data)">เติม</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div> -->

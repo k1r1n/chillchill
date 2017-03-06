@@ -1,0 +1,87 @@
+<div class="ui container grid" ng-init="vm.init()">
+	<!-- left -->
+  <div class="three wide column">
+  	<h4 class="ui block header teal fluid">
+      <p>
+        <i class="list layout icon"></i>หมวดหมู่สินค้า
+      </p>
+    </h4>
+    <div class="ui vertical menu fluid">
+      <a class="teal item" ng-repeat="list in vm.categorys">
+        {{ list.product_category_name }}
+        <div class="ui teal left pointing label">5</div>
+      </a>
+    </div>
+  </div>
+  <!-- center -->
+  <div class="ten wide column">
+  	<div id="wrap" class="card ui fluid">
+      <header class="image fluid ">
+        <div class="ui embed" data-ng-focus="vm.focus()" data-ng-blur="vm.blur()">
+         
+        </div>
+         <div class="ui dimmer" style="z-index: 99999;">
+            <div class="content">
+              <div class="center">
+                <h2 class="ui inverted icon header">
+                  <i class="heart icon"></i>
+                  Dimmed Message!
+                </h2>
+              </div>
+            </div>
+          </div>
+      </header>
+      <div class="content">
+        <h2 class="ui header">
+          {{ vm.item.name }}
+        </h2>
+        <div class="ui clearing inverted segment">
+          <div class="ui left floated button green ">
+            Price : {{ vm.item.price }}
+          </div>
+          <div class="ui left floated button blue ">
+            True Money : {{ vm.item.price }}
+          </div>
+          <div id="cart_{{ vm.item.pid }}" class="ui right floated button orange icon" data-ng-click="vm.addToCart(vm.item.pid)" data-ng-class="{ loading:vm.loading }" ng-disabled="vm.loading">
+            <i class="add to cart icon"></i> หยิบใส่ตะกร้า
+          </div>
+          <div id="Favorite" class="ui right floated button red icon" title="Favorite" data-ng-click="vm.favorite(vm.item.pid)">
+            <i class="heart icon"></i>
+          </div>
+        </div>
+        <div id="description"></div>
+        <div class="ui one column centered grid" style="margin-top:20px;">
+          <div class="ui statistic">
+            <div class="value">
+              {{ vm.item.view | number }}
+            </div>
+            <div class="label">
+              VIEW
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- right -->
+  <div class="three wide column">
+    <div class="ui fluid">
+		  <div class="card ui fluid" ng-repeat="list in vm.products | orderBy : 'countSell' | limitTo:10 " title="{{ list.name }}" data-ng-click="vm.goView(list.pid)">
+		    <div class="image">
+		    	<div class="ui red right ribbon label">
+		        <i class="thumbs up icon"></i> ขายดี
+		      </div>
+		      <img ng-src="{{ list.img }}">
+		    </div>
+		    <div class="extra ui one column centered grid">
+          <div class="ui star huge rating" data-rating="5"></div>
+        </div>
+		  </div>
+		</div>
+  </div>
+
+</div>
+<script>
+	$('.ui.rating').rating({maxRating: 5})
+  $('.embed').dimmer('show');
+</script>
